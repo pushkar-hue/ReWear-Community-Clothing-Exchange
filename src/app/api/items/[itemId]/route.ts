@@ -5,12 +5,12 @@ import User from '@/models/User';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { itemId: string } }
+  { params }: { params: Promise<{ itemId: string }> }
 ) {
   try {
     await connectDB();
     
-    const { itemId } = params;
+    const { itemId } = await params;
 
     if (!itemId) {
       return NextResponse.json(

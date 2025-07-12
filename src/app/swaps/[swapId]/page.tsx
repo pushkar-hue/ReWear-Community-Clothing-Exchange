@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, use } from 'react';
 import { 
   Package, 
   Truck, 
@@ -82,12 +82,13 @@ interface SwapDetails {
 }
 
 interface SwapPageProps {
-  params: { swapId: string };
+  params: Promise<{ swapId: string }>;
 }
 
 // Main page component
 export default function SwapPage({ params }: SwapPageProps) {
-  return <SwapManagement swapId={params.swapId} />;
+  const { swapId } = use(params);
+  return <SwapManagement swapId={swapId} />;
 }
 
 // SwapManagement component
