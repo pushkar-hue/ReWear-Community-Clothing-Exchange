@@ -118,6 +118,7 @@ export default function BrowsePage() {
       setLoading(true);
       setError(null);
 
+      console.log('Fetching items from:', `/api/items?${queryString}`);
       const response = await fetch(`/api/items?${queryString}`);
       
       if (!response.ok) {
@@ -125,14 +126,21 @@ export default function BrowsePage() {
       }
 
       const data = await response.json();
+      console.log('API Response:', data);
 
       if (data.success) {
-        setItems(reset ? data.items : [...items, ...data.items]);
+        const newItems = data.items || [];
+        setItems(reset ? newItems : [...items, ...newItems]);
         setPagination(prev => ({
           ...prev,
-          total: data.pagination.total,
-          hasMore: data.pagination.hasMore,
+          total: data.pagination?.total || 0,
+          hasMore: data.pagination?.hasMore || false,
         }));
+        
+        // Log if no items found
+        if (newItems.length === 0 && reset) {
+          console.log('No items found in database');
+        }
       } else {
         throw new Error(data.error || 'Failed to fetch items');
       }
