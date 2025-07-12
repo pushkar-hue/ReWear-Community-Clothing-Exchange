@@ -1,103 +1,145 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+      {/* Header */}
+      <header className="bg-white/90 backdrop-blur-sm border-b border-green-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">R</span>
+              </div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                ReWear
+              </h1>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/browse" className="text-gray-600 hover:text-green-600 transition-colors">
+                Browse Items
+              </Link>
+              <Link href="/dashboard" className="text-gray-600 hover:text-green-600 transition-colors">
+                Dashboard
+              </Link>
+              <Link href="/login" className="text-gray-600 hover:text-green-600 transition-colors">
+                Login
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20">
+        <div className="text-center">
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            Fashion that
+            <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent block">
+              Gives Back
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Transform your closet into a sustainable fashion playground. Swap clothes, discover your style with AI, 
+            and make a positive impact on the planet - one outfit at a time.
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Link 
+              href="/register"
+              className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+              Start Swapping
+            </Link>
+            <Link 
+              href="/browse"
+              className="border-2 border-green-500 text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition-all duration-200"
+            >
+              Browse Items
+            </Link>
+            <Link 
+              href="/upload"
+              className="border-2 border-blue-500 text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-200"
+            >
+              List an Item
+            </Link>
+          </div>
+
+          {/* Features Preview */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20">
+            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-8 border border-green-100 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <span className="text-white text-xl">🤖</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">AI Style Assistant</h3>
+              <p className="text-gray-600">
+                Get personalized outfit recommendations and style advice powered by advanced AI technology.
+              </p>
+            </div>
+
+            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-8 border border-blue-100 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <span className="text-white text-xl">✨</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">AR Try-On Experience</h3>
+              <p className="text-gray-600">
+                See how clothes look styled on you before swapping with our AR-powered visualization.
+              </p>
+            </div>
+
+            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-8 border border-green-100 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <span className="text-white text-xl">🌱</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Sustainability Impact</h3>
+              <p className="text-gray-600">
+                Track your environmental impact and compete on the eco-leaderboard to save the planet.
+              </p>
+            </div>
+          </div>
+
+          {/* Stats Section */}
+          <div className="mt-20 bg-white/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Platform Impact</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600">2.5K+</div>
+                <div className="text-gray-600">Items Swapped</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600">850+</div>
+                <div className="text-gray-600">Active Users</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600">1.2T</div>
+                <div className="text-gray-600">CO₂ Saved (kg)</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600">95%</div>
+                <div className="text-gray-600">Satisfaction</div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xs">R</span>
+            </div>
+            <span className="text-xl font-bold">ReWear</span>
+          </div>
+          <p className="text-gray-400">
+            Building a sustainable future, one swap at a time.
+          </p>
+        </div>
       </footer>
     </div>
   );
 }
+           
