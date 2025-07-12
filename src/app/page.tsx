@@ -20,6 +20,9 @@ export default function Home() {
               <Link href="/browse" className="text-gray-600 hover:text-green-600 transition-colors">
                 Browse Items
               </Link>
+              <Link href="/leaderboard" className="text-gray-600 hover:text-green-600 transition-colors">
+                Eco-Leaderboard
+              </Link>
               <Link href="/dashboard" className="text-gray-600 hover:text-green-600 transition-colors">
                 Dashboard
               </Link>
