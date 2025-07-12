@@ -422,10 +422,7 @@ export default function Dashboard() {
                   <button
                     key={index}
                     onClick={() => handleQuickAction(action.path)}
-                    className="group relative overflow-hidden rounded-xl p-6 text-left transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                    style={{
-                      background: `linear-gradient(135deg, ${action.color.split(' ')[0].replace('from-', '')} 0%, ${action.color.split(' ')[2].replace('to-', '')} 100%)`
-                    }}
+                    className={`group relative overflow-hidden rounded-xl p-6 text-left transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-gradient-to-br ${action.color || 'from-blue-500 to-blue-600'}`}
                   >
                     <div className="relative z-10">
                       <div className={`w-12 h-12 ${action.bgColor} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
