@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { 
   Send, 
   Search, 
@@ -11,6 +12,7 @@ import {
   Smile,
   Star,
   ArrowLeft,
+  ArrowRight,
   Phone,
   Video,
   Info,

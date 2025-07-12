@@ -19,7 +19,12 @@ import {
   Trophy,
   Heart,
   Zap,
-  Crown
+  Crown,
+  Eye,
+  Upload,
+  MessageCircle,
+  BarChart3,
+  Sparkles
 } from 'lucide-react';
 
 // Types for dashboard data (TypeScript excellence)
@@ -265,6 +270,68 @@ export default function Dashboard() {
     return `${diffInWeeks}w ago`;
   }, []);
 
+  // Quick action handlers
+  const quickActions = [
+    {
+      title: 'Browse Items',
+      description: 'Discover sustainable fashion',
+      icon: ShoppingBag,
+      color: 'from-blue-500 to-blue-600',
+      path: '/browse',
+      bgColor: 'bg-blue-50',
+      textColor: 'text-blue-600'
+    },
+    {
+      title: 'AR Styling',
+      description: 'AI-powered style recommendations',
+      icon: Sparkles,
+      color: 'from-purple-500 to-pink-500',
+      path: '/ar-style',
+      bgColor: 'bg-purple-50',
+      textColor: 'text-purple-600'
+    },
+    {
+      title: 'Upload Item',
+      description: 'List your clothing',
+      icon: Upload,
+      color: 'from-green-500 to-green-600',
+      path: '/upload',
+      bgColor: 'bg-green-50',
+      textColor: 'text-green-600'
+    },
+    {
+      title: 'Messages',
+      description: 'Chat with traders',
+      icon: MessageCircle,
+      color: 'from-orange-500 to-orange-600',
+      path: '/messages',
+      bgColor: 'bg-orange-50',
+      textColor: 'text-orange-600'
+    },
+    {
+      title: 'Leaderboard',
+      description: 'See eco rankings',
+      icon: BarChart3,
+      color: 'from-indigo-500 to-indigo-600',
+      path: '/leaderboard',
+      bgColor: 'bg-indigo-50',
+      textColor: 'text-indigo-600'
+    },
+    {
+      title: 'My Swaps',
+      description: 'Track your exchanges',
+      icon: Recycle,
+      color: 'from-teal-500 to-teal-600',
+      path: '/swaps',
+      bgColor: 'bg-teal-50',
+      textColor: 'text-teal-600'
+    }
+  ];
+
+  const handleQuickAction = (path: string) => {
+    router.push(path);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
@@ -347,6 +414,35 @@ export default function Dashboard() {
         {/* Overview Tab */}
         {activeTab === 'overview' && (
           <div className="space-y-8">
+            {/* Quick Actions */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-6">Quick Actions</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {quickActions.map((action, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleQuickAction(action.path)}
+                    className="group relative overflow-hidden rounded-xl p-6 text-left transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                    style={{
+                      background: `linear-gradient(135deg, ${action.color.split(' ')[0].replace('from-', '')} 0%, ${action.color.split(' ')[2].replace('to-', '')} 100%)`
+                    }}
+                  >
+                    <div className="relative z-10">
+                      <div className={`w-12 h-12 ${action.bgColor} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                        <action.icon className={`w-6 h-6 ${action.textColor}`} />
+                      </div>
+                      <h4 className="font-semibold text-white mb-2">{action.title}</h4>
+                      <p className="text-white/80 text-sm">{action.description}</p>
+                      <div className="absolute top-4 right-4">
+                        <ArrowUpRight className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
