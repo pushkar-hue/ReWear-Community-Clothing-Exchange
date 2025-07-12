@@ -22,7 +22,7 @@ Core Feature Mock Ideas
 - Admin Panel: Review, approve, or reject listings; moderate content
 
 
-##Team Name: Quantum
+## Team Name: Quantum
 - Leader: Ved Thorat
 - Member 1: Vallabh Sangvikar
 - Member 2: Raj Parik
