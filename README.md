@@ -24,7 +24,7 @@ The platform allows users to upload their unused clothing items, browse items li
 - Admin Panel: Review, approve, or reject listings; moderate content
 
 
-## Team Name: Quantum
+## Team Name: Team 2825
 - Leader: Ved Thorat
 - Member 1: Vallabh Sangvikar
 - Member 2: Raj Parik
